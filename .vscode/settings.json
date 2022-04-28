@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/d4b1a432-5ac5-45a3-b978-c5b6e249f921/resourceGroups/demo-app/providers/Microsoft.Web/sites/myclinic-web",
+  "appService.deploySubpath": "."
+}
