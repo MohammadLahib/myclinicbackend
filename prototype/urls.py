@@ -33,7 +33,6 @@ urlpatterns = [
     path('api/employees/', include('doctordashboard.urls.employee_urls')),
     path('api/visits/', include('doctordashboard.urls.aftervisit_urls')),
     path('api/forms/', include('doctordashboard.urls.form_urls')),
-    path('api/paymentsjournal/', include('doctordashboard.urls.journalentry_urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

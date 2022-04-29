@@ -4,7 +4,7 @@ from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
-from doctordashboard.models import Patient, Appointment, Operation, Room, Visit, PaymentJournal, Form, Employee
+from doctordashboard.models import Patient, Appointment, Operation, Room, Visit, Form, Employee
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
@@ -93,10 +93,10 @@ class VisitSerializer(serializers.ModelSerializer):
 #         patient = self.kwargs['patient']
 #         return Visit.objects.filter(patient=patient)
         
-class PaymentJournalSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PaymentJournal
-        fields = '__all__'
+# class PaymentJournalSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = PaymentJournal
+#         fields = '__all__'
         
 
 

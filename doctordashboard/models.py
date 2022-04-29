@@ -4,25 +4,6 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from django.utils.timezone import now
 
-
-    
-# class User(models.Model):
-    
-#     ADMINISTRATOR =  'Administartor'
-#     DENTIST_ASSISTANT =  'Dentist_Assistant'
-#     NURSE =  'Nurse'
-#     SECRETARY = 'Secretary'
-
-#     role_choices =  [   
-#         (ADMINISTRATOR, 'Administartor'),
-#         (DENTIST_ASSISTANT, 'Dentist_Assistant'),
-#         (NURSE, 'Nurse'),
-#         (SECRETARY, 'Secretary'),
-#     ]
-#
-
-
-
 class Employee(models.Model):
    
     firstName   = models.CharField(max_length=100, blank=True, null=True)
@@ -69,8 +50,6 @@ class Employee(models.Model):
         return self.email
     
     
-    
-
 
 class Room(models.Model):
     room_name = models.CharField(max_length = 100, null=True)
@@ -79,7 +58,6 @@ class Room(models.Model):
         return self.room_name
     
     
-
 
 class Operation(models.Model):
     room =  models.ForeignKey(Room, on_delete =  models.CASCADE, default="")
@@ -91,7 +69,6 @@ class Operation(models.Model):
         return self.title
     
     
-
 
 class Patient(models.Model):
    
@@ -112,7 +89,9 @@ class Patient(models.Model):
     E_lastName = models.CharField(max_length=100, blank=True, null=True) 
     E_contactNumber = models.CharField(max_length=100, blank=True, null=True)
     _id = models.AutoField(primary_key=True, editable=False)
-    
+    totalBalance = models.DecimalField(max_digits=10, default=0.00, decimal_places=2, blank=True, null=True)
+    pendingBalance = models.DecimalField(max_digits=10, default=0.00, decimal_places=2, blank=True, null=True)
+
     def __str__(self):
         return self.email
     
@@ -130,7 +109,8 @@ class Appointment(models.Model):
     
     def __str__(self):
         return self.firstName +  " " + self.lastName
-      
+    
+    
 
 class Visit(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE,null=False,default=1)
@@ -143,12 +123,6 @@ class Visit(models.Model):
 
     def __str__(self):
         return str(self.patient)
-    
-class PaymentJournal(models.Model):
-    patient = models.OneToOneField(Patient, null= False,on_delete=models.CASCADE)
-    totalBalance = models.DecimalField(max_digits=10, default=0.00, decimal_places=2, blank=True, null=True)
-    pendingBalance = models.DecimalField(max_digits=10, default=0.00, decimal_places=2, blank=True, null=True)
-    _id = models.AutoField(primary_key=True, editable=False)
 
 class Form(models.Model):
     name = models.CharField(max_length=100)

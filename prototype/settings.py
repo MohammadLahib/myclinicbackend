@@ -97,16 +97,54 @@ WSGI_APPLICATION = 'prototype.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'heroku_30fa30c6b91462d',
+#         'USER': 'bcc2a738a5ded8',
+#         'PASSWORD': '4904ab83',
+#         'HOST': 'us-cdbr-east-05.cleardb.net',
+#         'PORT': '3306',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_30fa30c6b91462d',
-        'USER': 'bcc2a738a5ded8',
-        'PASSWORD': '4904ab83',
-        'HOST': 'us-cdbr-east-05.cleardb.net',
+        'NAME': 'myclinic',
+        'USER': 'root',
+        'PASSWORD': 'ahmad072019',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
+
+# if os.getenv('GAE_APPLICATION', None):
+#     # Running on production App Engine, so connect to Google Cloud SQL using
+#     # the unix socket at /cloudsql/<your-cloudsql-connection string>
+#   DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'heroku_30fa30c6b91462d',
+#         'USER': 'bcc2a738a5ded8',
+#         'PASSWORD': '4904ab83',
+#         'HOST': 'us-cdbr-east-05.cleardb.net',
+#         'PORT': '3306',
+#     }
+# }
+
+# else:
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'myclinic',
+#         'USER': 'root',
+#         'PASSWORD': 'ahmad072019',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 # CORS_ORIGIN_WHITELIST = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
