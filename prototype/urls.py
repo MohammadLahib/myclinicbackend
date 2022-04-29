@@ -23,8 +23,6 @@ from django.views.generic import TemplateView
 from doctordashboard import views_test as views
 
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
@@ -32,7 +30,7 @@ urlpatterns = [
     path('api/appointments/', include("doctordashboard.urls.appointment_urls")),
     path('api/operations/', include("doctordashboard.urls.operation_urls")),
     path('api/rooms/', include("doctordashboard.urls.room_urls")),
-    path('api/users/', include('doctordashboard.urls.users_urls')),
+    path('api/employees/', include('doctordashboard.urls.employee_urls')),
     path('api/visits/', include('doctordashboard.urls.aftervisit_urls')),
     path('api/forms/', include('doctordashboard.urls.form_urls')),
     path('api/paymentsjournal/', include('doctordashboard.urls.journalentry_urls'))

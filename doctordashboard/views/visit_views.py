@@ -31,8 +31,8 @@ def getVisitsPatient(request, pk):
     serializer = VisitSerializer(visits, many=False)
     return JsonResponse(serializer.data)
 
-#@api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
 def postVisit(request):
     # permission_classes = [IsAdminUser]
     visit = JSONParser().parse(request)
